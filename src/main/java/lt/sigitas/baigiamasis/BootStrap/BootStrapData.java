@@ -19,9 +19,10 @@ public class BootStrapData implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 
+        System.out.println("\n------------\n");
         ingredientRepository.findAll().forEach(System.out::println);
         System.out.println("\n------------\n");
-        System.out.println(ingredientRepository.findById(50));
+        System.out.println(ingredientRepository.findById(2));
         System.out.println("\n------------\n");
         dishRepository.findAll().forEach(System.out::println);
         System.out.println(dishRepository.findById(2));
