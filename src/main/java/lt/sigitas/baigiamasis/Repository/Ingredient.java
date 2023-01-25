@@ -27,9 +27,9 @@ public class Ingredient {
     @Column(name = "unit")
     private String unit;
     @Column(name = "carbstotalinportion")
-    private Integer carbsTotalInPortion;
+    private Double carbsTotalInPortion;
     @Column(name = "proteinstotalinportion")
-    private Integer proteinsTotalInPortion;
+    private Double proteinsTotalInPortion;
 
     @Override
     public String toString() {

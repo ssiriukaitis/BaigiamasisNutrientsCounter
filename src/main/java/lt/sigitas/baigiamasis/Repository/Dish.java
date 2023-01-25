@@ -31,9 +31,9 @@ public class Dish {
     @Column(name = "recipe")
     private String recipe;
     @Column(name = "carbstotal")
-    private Integer carbsTotal;
+    private Double carbsTotal;
     @Column(name = "proteinstotal")
-    private Integer proteinsTotal;
+    private Double proteinsTotal;
 
     @Column(name = "ingredients_idingredient")
     private Integer ingredients_idIngredient;
