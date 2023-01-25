@@ -31,4 +31,20 @@ public class DishController {
     public @ResponseBody Dish getDishByID(@PathVariable int id) {
         return dishService.getDishById(id);
     }
+    ////http://localhost:8080/dishmapping/mydish/7
+    @GetMapping(path = "/mydish/{id}")
+    public @ResponseBody Ingredient getMyDishByID(@PathVariable int id) {
+        return dishService.getMyDishById(id);
+
+    }
+    //   http://localhost:8080/dishmapping/mydish/name/Tortas
+    @GetMapping(path = "/mydish/name/{name}")
+    public @ResponseBody Dish getMyDishByName(@PathVariable String name){
+        return dishService.getMyDishByName(name);
+    }
+    //   http://localhost:8080/dishmapping/mydish/Like/ag
+    @GetMapping(path = "/mydish/Like/{name}")
+    public @ResponseBody List<Dish> getMyDishByNameLike(@PathVariable String name){
+        return dishService.getMyDishByNameLike("%" + name + "%");
+    }
 }
