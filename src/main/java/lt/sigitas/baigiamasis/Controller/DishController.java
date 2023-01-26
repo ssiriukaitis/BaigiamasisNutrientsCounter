@@ -24,7 +24,7 @@ public class DishController {
         return dishService.getAllDishes();
     }
 
-    ////http://localhost:8080/dishmapping/dish/id/7
+    ////http://localhost:8080/dishmapping/dish/id/2
     @GetMapping(path = "/dish/id/{id}")
     public @ResponseBody Dish getDishByID(@PathVariable int id) {
         return dishService.getDishById(id);
@@ -42,7 +42,7 @@ public class DishController {
         return dishService.getMyDishByName(name);
     }
 
-    //   http://localhost:8080/dishmapping/mydish/Like/ag
+    //   http://localhost:8080/dishmapping/mydish/Like/tor
     @GetMapping(path = "/mydish/Like/{name}")
     public @ResponseBody List<Dish> getMyDishByNameLike(@PathVariable String name) {
         return dishService.getMyDishByNameLike("%" + name + "%");

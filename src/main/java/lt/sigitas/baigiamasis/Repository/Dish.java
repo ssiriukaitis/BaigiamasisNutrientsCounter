@@ -25,6 +25,4 @@ public class Dish {
     @Column(name = "recipe")
     private String recipe;
 
-
-
 }

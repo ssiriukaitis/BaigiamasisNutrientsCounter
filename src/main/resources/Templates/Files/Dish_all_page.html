@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="ingredientDataTable" class="table">
+  <tr>
+    <th class="th">Eil. Nr.</th>
+    <th class="th">Patiekalo numeris</th>
+    <th class="th">Pavadinimas</th>
+    <th class="th">Receptas</th>
+  </tr>
+  <tr th:each="dish : ${key_dishes_list}">
+    <td class="td" th:text="${dishStat.index+1}"></td>
+    <td class="td" th:text="${dish.idDish}"></td>
+    <td class="td" th:text="${dish.dishName}"></td>
+    <td class="td" th:text="${dish.recipe}"></td>
+
+  </tr>
+</table>
+
+</body>
+</html>
