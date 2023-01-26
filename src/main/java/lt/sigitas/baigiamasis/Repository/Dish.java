@@ -22,21 +22,9 @@ public class Dish {
     private Integer idDish;
     @Column(name = "dishname")
     private String dishName;
-    @Column(name = "ingredients")
-    private String ingredients;
-    @Column(name = "ingredientportion")
-    private Integer ingredientPortion;
-    @Column(name = "ingredientunit")
-    private String ingredientUnit;
     @Column(name = "recipe")
     private String recipe;
-    @Column(name = "carbstotal")
-    private Double carbsTotal;
-    @Column(name = "proteinstotal")
-    private Double proteinsTotal;
 
-    @Column(name = "ingredients_idingredient")
-    private Integer ingredients_idIngredient;
 
 
 }

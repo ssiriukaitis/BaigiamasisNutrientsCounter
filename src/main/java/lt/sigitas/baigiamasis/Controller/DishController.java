@@ -30,13 +30,13 @@ public class DishController {
         return dishService.getDishById(id);
     }
 
-    ////http://localhost:8080/dishmapping/mydish/7
-    @GetMapping(path = "/mydish/{id}")
+    ////http://localhost:8080/dishmapping/mydish/id/2
+    @GetMapping(path = "/mydish/id/{id}")
     public @ResponseBody Dish getMyDishByID(@PathVariable int id) {
         return dishService.getMyDishById(id);
     }
 
-    //   http://localhost:8080/dishmapping/mydish/name/Tortas
+    //   http://localhost:8080/dishmapping/mydish/name/Daržovių%20glotnutis
     @GetMapping(path = "/mydish/name/{name}")
     public @ResponseBody Dish getMyDishByName(@PathVariable String name) {
         return dishService.getMyDishByName(name);

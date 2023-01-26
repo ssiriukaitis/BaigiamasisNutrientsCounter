@@ -47,13 +47,13 @@ public class IngredientController {
 
     }
 
-    //   http://localhost:8080/ingredientmapping/myingredient/name/Agurkas
+    //   http://localhost:8080/ingredientmapping/myingredient/name/Morkos
     @GetMapping(path = "/myingredient/name/{name}")
     public @ResponseBody Ingredient getMyIngredientByName(@PathVariable String name) {
         return ingredientService.getMyIngredientByName(name);
     }
 
-    //   http://localhost:8080/ingredientmapping/myingredient/Like/ag
+    //   http://localhost:8080/ingredientmapping/myingredient/Like/cukr
     @GetMapping(path = "/myingredient/Like/{name}")
     public @ResponseBody List<Ingredient> getMyIngredientByNameLike(@PathVariable String name) {
         return ingredientService.getMyIngredientByNameLike("%" + name + "%");
