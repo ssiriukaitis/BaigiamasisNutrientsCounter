@@ -19,5 +19,14 @@ public class IngredientService {
     public Ingredient getIngredientById(Integer ingredientId){
         return ingredientRepository.findById(ingredientId).get();
     }
+    public Ingredient getMyIngredientById(int id){
+        return ingredientRepository.findByIngredientNumber(id).get();
+    }
+    public Ingredient getMyIngredientByName(String ingredientName){
+        return ingredientRepository.findByIngredientName(ingredientName).get();
+    }
+    public List<Ingredient> getMyIngredientByNameLike(String ingredientName){
+        return (List<Ingredient>) ingredientRepository.findByIngredientNameLike(ingredientName);
+    }
 
 }

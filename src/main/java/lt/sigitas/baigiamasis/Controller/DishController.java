@@ -1,9 +1,7 @@
 package lt.sigitas.baigiamasis.Controller;
 
 import lt.sigitas.baigiamasis.Repository.Dish;
-import lt.sigitas.baigiamasis.Repository.Ingredient;
 import lt.sigitas.baigiamasis.Service.DishService;
-import lt.sigitas.baigiamasis.Service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,5 +28,21 @@ public class DishController {
     @GetMapping(path = "/dish/{id}")
     public @ResponseBody Dish getDishByID(@PathVariable int id) {
         return dishService.getDishById(id);
+    }
+    ////http://localhost:8080/dishmapping/mydish/7
+    @GetMapping(path = "/mydish/{id}")
+    public @ResponseBody Dish getMyDishByID(@PathVariable int id) {
+        return dishService.getMyDishById(id);
+
+    }
+    //   http://localhost:8080/dishmapping/mydish/name/Tortas
+    @GetMapping(path = "/mydish/name/{name}")
+    public @ResponseBody Dish getMyDishByName(@PathVariable String name){
+        return dishService.getMyDishByName(name);
+    }
+    //   http://localhost:8080/dishmapping/mydish/Like/ag
+    @GetMapping(path = "/mydish/Like/{name}")
+    public @ResponseBody List<Dish> getMyDishByNameLike(@PathVariable String name){
+        return dishService.getMyDishByNameLike("%" + name + "%");
     }
 }
