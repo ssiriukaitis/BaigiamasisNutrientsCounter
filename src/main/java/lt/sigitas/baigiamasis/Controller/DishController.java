@@ -20,29 +20,31 @@ public class DishController {
 
     ////http://localhost:8080/dishmapping/dish/all
     @GetMapping(path = "/dish/all")
-    public @ResponseBody List<Dish> getAllDishes(){
+    public @ResponseBody List<Dish> getAllDishes() {
         return dishService.getAllDishes();
-
     }
+
     ////http://localhost:8080/dishmapping/dish/7
     @GetMapping(path = "/dish/{id}")
     public @ResponseBody Dish getDishByID(@PathVariable int id) {
         return dishService.getDishById(id);
     }
+
     ////http://localhost:8080/dishmapping/mydish/7
     @GetMapping(path = "/mydish/{id}")
     public @ResponseBody Dish getMyDishByID(@PathVariable int id) {
         return dishService.getMyDishById(id);
-
     }
+
     //   http://localhost:8080/dishmapping/mydish/name/Tortas
     @GetMapping(path = "/mydish/name/{name}")
-    public @ResponseBody Dish getMyDishByName(@PathVariable String name){
+    public @ResponseBody Dish getMyDishByName(@PathVariable String name) {
         return dishService.getMyDishByName(name);
     }
+
     //   http://localhost:8080/dishmapping/mydish/Like/ag
     @GetMapping(path = "/mydish/Like/{name}")
-    public @ResponseBody List<Dish> getMyDishByNameLike(@PathVariable String name){
+    public @ResponseBody List<Dish> getMyDishByNameLike(@PathVariable String name) {
         return dishService.getMyDishByNameLike("%" + name + "%");
     }
 }
