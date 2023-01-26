@@ -24,8 +24,8 @@ public class DishController {
         return dishService.getAllDishes();
     }
 
-    ////http://localhost:8080/dishmapping/dish/7
-    @GetMapping(path = "/dish/{id}")
+    ////http://localhost:8080/dishmapping/dish/id/7
+    @GetMapping(path = "/dish/id/{id}")
     public @ResponseBody Dish getDishByID(@PathVariable int id) {
         return dishService.getDishById(id);
     }

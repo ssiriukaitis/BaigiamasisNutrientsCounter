@@ -16,17 +16,24 @@ public class IngredientService {
     public List<Ingredient> getAllIngredients(){
         return (List<Ingredient>) ingredientRepository.findAll();
     }
+
     public Ingredient getIngredientById(Integer ingredientId){
         return ingredientRepository.findById(ingredientId).get();
     }
+
     public Ingredient getMyIngredientById(int id){
-        return ingredientRepository.findByIngredientNumber(id).get();
+        return ingredientRepository.findByIdIngredient(id).get();
     }
+
     public Ingredient getMyIngredientByName(String ingredientName){
         return ingredientRepository.findByIngredientName(ingredientName).get();
     }
+
     public List<Ingredient> getMyIngredientByNameLike(String ingredientName){
         return (List<Ingredient>) ingredientRepository.findByIngredientNameLike(ingredientName);
     }
 
+    public boolean checkIfDataExist(Integer id){
+        return ingredientRepository.existsById(id);
+    }
 }

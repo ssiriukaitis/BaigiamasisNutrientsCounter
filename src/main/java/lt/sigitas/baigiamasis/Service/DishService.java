@@ -2,7 +2,6 @@ package lt.sigitas.baigiamasis.Service;
 
 import lt.sigitas.baigiamasis.Repository.Dish;
 import lt.sigitas.baigiamasis.Repository.DishRepository;
-import lt.sigitas.baigiamasis.Repository.Ingredient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +20,7 @@ public class DishService {
         return dishRepository.findById(dishId).get();
     }
     public Dish getMyDishById(int id){
-        return dishRepository.findByDishNumber(id).get();
+        return dishRepository.findByIdDish(id).get();
     }
     public Dish getMyDishByName(String dishName){
         return dishRepository.findByDishName(dishName).get();

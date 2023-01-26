@@ -11,13 +11,12 @@ public class BootStrapData implements CommandLineRunner {
 
     @Autowired
     private IngredientRepository ingredientRepository;
+
     @Autowired
     private DishRepository dishRepository;
 
-
     @Override
     public void run(String... args) throws Exception {
-
 
         System.out.println("\n------------\n");
         ingredientRepository.findAll().forEach(System.out::println);
@@ -26,7 +25,5 @@ public class BootStrapData implements CommandLineRunner {
         System.out.println("\n------------\n");
         dishRepository.findAll().forEach(System.out::println);
         System.out.println(dishRepository.findById(2));
-
     }
-
 }

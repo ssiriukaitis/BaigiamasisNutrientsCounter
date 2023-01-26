@@ -6,8 +6,7 @@ import java.util.Optional;
 
 public interface DishRepository extends CrudRepository<Dish, Integer> {
 
-    Optional<Dish> findByDishNumber(int id);
+    Optional<Dish> findByIdDish(int id);
     Optional<Dish> findByDishName(String dishName);
     Iterable<Dish> findByDishNameLike(String ingredientName);
-
 }

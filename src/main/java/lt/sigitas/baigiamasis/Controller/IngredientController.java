@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Controller
 @RequestMapping(path = "/ingredientmapping")
@@ -28,11 +29,15 @@ public class IngredientController {
 
     }
 
-    ////http://localhost:8080/ingredientmapping/ingredient/id/7
+    ////http://localhost:8080/ingredientmapping/ingredient/id/5
     @GetMapping(path = "/ingredient/id/{id}")
     public @ResponseBody Ingredient getIngredientByID(@PathVariable int id) {
-        return ingredientService.getIngredientById(id);
 
+        if (ingredientService.checkIfDataExist(id)){
+            return ingredientService.getIngredientById(id);
+        }
+
+        return new Ingredient();
     }
 
     ////http://localhost:8080/ingredientmapping/myingredient/7
