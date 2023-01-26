@@ -9,10 +9,9 @@ import lt.sigitas.baigiamasis.Service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -42,6 +41,20 @@ public class DishTemplateController {
         List<Dish> dishesList = dishService.getAllDishes();
         model.addAttribute("key_dishes_list", dishesList);
         return "/Files/Dish_all_page";
+    }
+    ///http://localhost:8080/dishtemplate/dishes/getandpost
+    @RequestMapping(value = "/dishes/getandpost", method = RequestMethod.GET)
+    public String getDishByNameLike(Model model){
+        model.addAttribute("key_dish", new Dish());
+        model.addAttribute("key_dish_listas", Collections.emptyList());
+        return "/Dish/post_get_dishes_th";
+    }
+    ///http://localhost:8080/dishtemplate/dishes/getandpost
+    @RequestMapping(value = "/dishes/getandpost", method = RequestMethod.POST)
+    public String postDishByNameLike(Model model, @ModelAttribute(value = "key_dish") Dish dish){
+        List<Dish> dishes = dishService.getMyDishByNameLike("%" + dish.getDishName() + "%");
+        model.addAttribute("key_dish_listas", dishes);
+        return "/Dish/post_get_dishes_th";
     }
 
 

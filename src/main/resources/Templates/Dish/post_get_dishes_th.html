@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patiekalai</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/dishtemplate/dishes/getandpost}" th:object="${key_dish}" method="post">
+    <label>Patiekalo pavadinimas:</label>
+    <input type="text" th:field="${key_dish.dishName}" id="dishName"/>
+    <input type="submit" value="Submit" />
+    <input type="submit" value="Clear" onclick="document.getElementById('dishName').value = ''"/>
+</form>
+<br>
+
+<table>
+    <tr>
+        <th class="th">Eil. Nr.</th>
+        <th class="th">Patiekalo numeris</th>
+        <th class="th">Pavadinimas</th>
+        <th class="th">Receptas</th>
+    </tr>
+
+    <tr th:if="${#lists.isEmpty(key_dish_listas)}">
+        <td colspan="5">Nėra tokio patiekalo. Pridėkite į sąrašą!</td>
+    </tr>
+
+    <tr th:each="dish : ${key_dish_listas}">
+        <td class="td" th:text="${dishStat.index+1}"></td>
+        <td class="td" th:text="${dish.idDish}"></td>
+        <td class="td" th:text="${dish.dishName}"></td>
+        <td class="td" th:text="${dish.recipe}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

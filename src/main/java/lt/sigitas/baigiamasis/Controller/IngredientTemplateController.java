@@ -6,10 +6,9 @@ import lt.sigitas.baigiamasis.Service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -43,6 +42,20 @@ public class IngredientTemplateController {
         List<Ingredient> ingredientsList = ingredientService.getAllIngredients();
         model.addAttribute("key_ingredients_list", ingredientsList);
         return "/Files/ingredient_all_page";
+    }
+    ///http://localhost:8080/ingredienttemplate/ingredients/getandpost
+    @RequestMapping(value = "/ingredients/getandpost", method = RequestMethod.GET)
+    public String getIngredientByNameLike(Model model){
+        model.addAttribute("key_ingredient", new Ingredient());
+        model.addAttribute("key_ingredient_listas", Collections.emptyList());
+        return "/Ingredient/post_get_ingredients_th";
+    }
+    ///http://localhost:8080/ingredienttemplate/ingredients/getandpost
+    @RequestMapping(value = "/ingredients/getandpost", method = RequestMethod.POST)
+    public String postIngredientByNameLike(Model model, @ModelAttribute(value = "key_ingredient") Ingredient ingredient){
+        List<Ingredient> ingredients= ingredientService.getMyIngredientByNameLike("%" + ingredient.getIngredientName() + "%");
+        model.addAttribute("key_ingredient_listas", ingredients);
+        return "/Ingredient/post_get_ingredients_th";
     }
 
 

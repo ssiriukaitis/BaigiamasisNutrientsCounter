@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+    <meta charset="UTF-8">
+    <title>Ingredientai</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/ingredienttemplate/ingredients/getandpost}" th:object="${key_ingredient}" method="post">
+    <label>Ingrediento pavadinimas:</label>
+    <input type="text" th:field="${key_ingredient.ingredientName}" id="ingredientName"/>
+    <input type="submit" value="Submit" />
+    <input type="submit" value="Clear" onclick="document.getElementById('ingredientName').value = ''"/>
+</form>
+<br>
+
+<table>
+    <tr>
+        <th class="th">Eil. Nr.</th>
+        <th class="th">Ingrediento numeris</th>
+        <th class="th">Pavadinimas</th>
+        <th class="th">Maisto kategorija</th>
+        <th class="th">Kiekis (g.)</th>
+        <th class="th">Angliavandenių skaičius (g.)</th>
+        <th class="th">Baltymų skaičius (g.)</th>
+    </tr>
+
+    <tr th:each="ingredient : ${key_ingredient_listas}">
+        <td class="td" th:text="${ingredientStat.index+1}"></td>
+        <td class="td" th:text="${ingredient.idIngredient}"></td>
+        <td class="td" th:text="${ingredient.ingredientName}"></td>
+        <td class="td" th:text="${ingredient.foodCategory}"></td>
+        <td class="td" th:text="${ingredient.portion}"></td>
+        <td class="td" th:text="${ingredient.sugarsTotalInPortion}"></td>
+        <td class="td" th:text="${ingredient.proteinsTotalInPortion}"></td>
+    </tr>
+
+    <tr th:if="${#lists.isEmpty(key_ingredient_listas)}">
+        <td colspan="5">Nėra tokio ingrediento. Pridėkite ingredientą į sąrašą!</td>
+    </tr>
+</table>
+
+</body>
+</html>
