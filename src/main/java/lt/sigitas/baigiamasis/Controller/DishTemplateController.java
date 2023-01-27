@@ -57,5 +57,4 @@ public class DishTemplateController {
         return "/Dish/post_get_dishes_th";
     }
 
-
 }

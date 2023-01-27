@@ -52,12 +52,14 @@ public class IngredientTemplateController {
     }
     ///http://localhost:8080/ingredienttemplate/ingredients/getandpost
     @RequestMapping(value = "/ingredients/getandpost", method = RequestMethod.POST)
-    public String postIngredientByNameLike(Model model, @ModelAttribute(value = "key_ingredient") Ingredient ingredient){
-        List<Ingredient> ingredients= ingredientService.getMyIngredientByNameLike("%" + ingredient.getIngredientName() + "%");
+    public String postIngredientByNameLike(
+            Model model, @ModelAttribute(value = "key_ingredient") Ingredient ingredient
+    ){
+        List<Ingredient> ingredients= ingredientService.getMyIngredientByNameLike(
+                "%" + ingredient.getIngredientName() + "%"
+        );
         model.addAttribute("key_ingredient_listas", ingredients);
         return "/Ingredient/post_get_ingredients_th";
     }
-
-
 
 }
